@@ -28,7 +28,7 @@ const defaultExpensesReducerState=[]
 const expensesReducer = (state=defaultExpensesReducerState,action) => {
     switch(action.type){
         case("ADD_EXPENSE"):
-            return {expense:[...state,action.expense]}
+            return [...state,action.expense]
         case('REMOVE_EXPENSE'):
             return state.filter((expense)=>{
                 return expense.id !== action.id
@@ -200,9 +200,8 @@ store.dispatch(addExpense({description:"January Gas Bill",amount:400}))
 
 store.subscribe(()=>{
     const state=store.getState()
-    //const visibleExpenses=getVisibleExpenses(state.expenses,state.filters)
-    console.log(store.getState()
-)
+    const visibleExpenses=getVisibleExpenses(state.expenses,state.filters)
+    console.log(visibleExpenses)
 })
 
 

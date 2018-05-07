@@ -21,6 +21,7 @@ export default  (state=defaultExpensesReducerState,action) => {
                     return expense
                 }
             })
+        
             
 
             
